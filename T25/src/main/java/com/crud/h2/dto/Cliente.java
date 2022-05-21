@@ -2,7 +2,6 @@ package com.crud.h2.dto;
 
 import java.util.Date;
 import java.util.List;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -18,32 +17,32 @@ import javax.persistence.TemporalType;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
-@Table(name="cliente")//en caso que la tabla sea diferente
-public class Cliente  {
- 
-	//Atributos de entidad cliente
+@Table(name = "cliente") // en caso que la tabla sea diferente
+public class Cliente {
+
+	// Atributos de entidad cliente
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)//busca ultimo valor e incrementa desde id final de db
+	@GeneratedValue(strategy = GenerationType.IDENTITY) // busca ultimo valor e incrementa desde id final de db
 	private Long id;
-	@Column(name = "nombre")//no hace falta si se llama igual
+	@Column(name = "nombre") // no hace falta si se llama igual
 	private String nombre;
-	@Column(name = "apellido")//no hace falta si se llama igual
+	@Column(name = "apellido") // no hace falta si se llama igual
 	private String apellido;
-	@Column(name = "direccion")//no hace falta si se llama igual
+	@Column(name = "direccion") // no hace falta si se llama igual
 	private String direccion;
-	@Column(name = "dni")//no hace falta si se llama igual
+	@Column(name = "dni") // no hace falta si se llama igual
 	private int dni;
 	@Temporal(TemporalType.TIMESTAMP)
 	private Date fecha;
-	
-    @OneToMany
-    @JoinColumn(name="id")
-    private List<Video> video;
-	
-	//Constructores
-	
+
+	@OneToMany
+	@JoinColumn(name = "id")
+	private List<Video> video;
+
+	// Constructores
+
 	public Cliente() {
-	
+
 	}
 
 	/**
@@ -55,7 +54,7 @@ public class Cliente  {
 	 * @param fecha
 	 */
 	public Cliente(Long id, String nombre, String apellido, String direccion, int dni, Date fecha) {
-		//super();
+		// super();
 		this.id = id;
 		this.nombre = nombre;
 		this.apellido = apellido;
@@ -64,9 +63,8 @@ public class Cliente  {
 		this.fecha = fecha;
 	}
 
-	
-	//Getters y Setters
-	
+	// Getters y Setters
+
 	/**
 	 * @return the id
 	 */
@@ -151,7 +149,6 @@ public class Cliente  {
 		this.fecha = fecha;
 	}
 
-	
 	/**
 	 * @return the video
 	 */
@@ -168,15 +165,11 @@ public class Cliente  {
 		this.video = video;
 	}
 
-	//Metodo impresion de datos por consola
+	// Metodo impresion de datos por consola
 	@Override
 	public String toString() {
 		return "Cliente [id=" + id + ", nombre=" + nombre + ", apellido=" + apellido + ", direccion=" + direccion
 				+ ", dni=" + dni + ", fecha=" + fecha + "]";
 	}
-	
-	
-	
-	
-	
+
 }
